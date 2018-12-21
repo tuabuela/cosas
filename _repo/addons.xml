@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
-<addon id="context.iptv.play" name="iptv - Context menu" version="1.0.1" provider-name="nadie">
+<addon id="context.iptv.play" name="iptv - Context menu" version="1.0.3" provider-name="nadie">
   <requires>
     <import addon="xbmc.python" version="2.20.0"/>
 	<import addon="plugin.video.f4mTester" />
   </requires>
   <extension point="kodi.context.item">
     <menu id="kodi.core.main">
+		<item library="play3.py">
+		  <label>Ver sin cortes (SIMPLE)</label>
+		  <visible>Window.IsVisible(MyPVRChannels.xml)|Window.IsVisible(MyPVRGuide.xml)|[Window.IsVisible(Home.xml)+String.IsEqual(Container(9000).ListItem.Property(id),livetv)]</visible>
+		</item>
 		<item library="play1.py">
-		  <label>Ver sin cortes 1</label>
+		  <label>Ver sin cortes (TS)</label>
 		  <visible>Window.IsVisible(MyPVRChannels.xml)|Window.IsVisible(MyPVRGuide.xml)|[Window.IsVisible(Home.xml)+String.IsEqual(Container(9000).ListItem.Property(id),livetv)]</visible>
 		</item>
 		<item library="play2.py">
-		  <label>Ver sin cortes 2</label>
+		  <label>Ver sin cortes (HLS)</label>
 		  <visible>Window.IsVisible(MyPVRChannels.xml)|Window.IsVisible(MyPVRGuide.xml)|[Window.IsVisible(Home.xml)+String.IsEqual(Container(9000).ListItem.Property(id),livetv)]</visible>
 		</item>
 	</menu>
